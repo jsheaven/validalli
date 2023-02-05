@@ -1,12 +1,16 @@
 <h1 align="center">validalli</h1>
 
-> A fast, functional, reliable and small form validation library that aims for correctness and simplicity
+> A tiny, but fast and reliable validation library for forms and runtime datatype checks
 
 <h2 align="center">Purpose</h2>
 
 Form validation can become a complex thing to implement. The idea of this library is to take a straight-forward,
 functional approach to the API, allow for composition, but at the same time provide all the primitives
 necessary to do the most relevant validations such as email etc. out-of-the-box.
+
+Also, usually, form validation and runtime datatype checking are thought of as two pairs of shoes, which
+leads to code duplication because logically, most form validation libraries need to use a foundation of
+runtime datatype checks. In this library, all datatype check functions are exported, so you get 2-in-1.
 
 <h2 align="center">Features</h2>
 
@@ -53,7 +57,7 @@ export const isSlugCorrect: Validator = ({ value }) => {
 // use custom data to check against; this logic should also
 // be unit testable. Writing your own validator functions helps alot.
 export const isLanguageSupported: Validator = ({ value }) =>
-  isOneOf(value, ['de', 'en']) ?? `Language not supported: ${value}`
+  isOneOf(value, ['de', 'en']) : true ? `Language not supported: ${value}`
 
 // user-provided input, aggregated as an object
 const someFormState = {
@@ -61,6 +65,7 @@ const someFormState = {
   language: 'fr',
 }
 
+// in default mode, validation stops with the first error that occurs
 const validationState = await validate<NewPageModel>(someFormState, {
   sitePath: isSlugCorrect, // one or more validator function can be passed via Array
   language: isLanguageSupported,
@@ -71,11 +76,13 @@ const validationState = await validate<NewPageModel>(someFormState, {
  * {
  *   isValid: false,
  *   sitePath: {
- *     isValid: true
+ *     isValid: true,
+ *     states: [{ isValid: true }]
  *   },
  *   language: {
  *     isValid: false,
- *     message: 'Language not supported: fr'
+ *     message: 'Language not supported: fr',
+ *     states: [{ isValid: false, message: 'Language not supported: fr' }]
  *   }
  * }
  */

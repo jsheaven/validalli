@@ -5,12 +5,16 @@
     "access": "public"
   },
   "license": "MIT",
-  "description": "A fast, functional, reliable and small form validation library that aims for correctness and simplicity",
+  "description": "A fast, functional, reliable and tiny validation library for forms and runtime datatype checks",
   "keywords": [
     "validation",
     "form",
     "async",
-    "extensible"
+    "extensibility",
+    "tiny",
+    "correctness",
+    "functional",
+    "flexibility"
   ],
   "repository": {
     "url": "git+https://github.com/kyr0/runtime-info.git",
