@@ -17,7 +17,7 @@
     "flexibility"
   ],
   "repository": {
-    "url": "git+https://github.com/kyr0/runtime-info.git",
+    "url": "git+https://github.com/jsheaven/runtime-info.git",
     "type": "git"
   },
   "scripts": {
