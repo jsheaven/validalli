@@ -5,7 +5,7 @@
     "access": "public"
   },
   "license": "MIT",
-  "description": "A fast, functional, reliable and tiny validation library for forms and runtime datatype checks",
+  "description": "A fast, functional, reliable and tiny validation library for state (e.g. form) and runtime datatype checks",
   "keywords": [
     "validation",
     "form",

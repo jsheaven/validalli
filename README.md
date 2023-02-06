@@ -1,6 +1,6 @@
 <h1 align="center">validalli</h1>
 
-> A tiny, but fast and reliable validation library for forms and runtime datatype checks
+> A tiny, but fast and reliable validation library for state (forms, etc.) and runtime datatype checks
 
 <h2 align="center">Purpose</h2>
 
